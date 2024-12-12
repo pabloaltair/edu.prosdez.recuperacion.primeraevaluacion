@@ -18,7 +18,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	public void mostrarConsultas() {
 		System.out.println("Introduce la Fecha(dd-MM-yyyy)");
 		String fechaString=fechaScanner.next();
-		
+		//S
 		for (CitaDto pl : Main.listaConsultaDtos) {
 			if (pl.getEspecialidad().equals("Psicología")) {
 				
