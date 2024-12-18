@@ -11,4 +11,5 @@ public interface FicheroInterfaz {
 	 * ilp-101024
 	 */
 	public void ficheroLog(String dato);
+	public void ficherocitasConAsistencia();
 }

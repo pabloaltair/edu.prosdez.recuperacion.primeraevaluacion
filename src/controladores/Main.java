@@ -18,6 +18,8 @@ import servicios.OperativaInterfaz;
  */
 public class Main {
 	public static List<CitaDto> listaConsultaDtos = new ArrayList<CitaDto>();
+	public static List<CitaDto> consultasValidas = new ArrayList<CitaDto>();
+
 	public static void main(String[] args) {
 		MenuInterfaz mi = new MenuImplementacion();
 		FicheroInterfaz fi = new FicheroImplementacion();
@@ -38,7 +40,7 @@ public class Main {
 				switch (opc) {
 				case 0:
 					System.out.println("Se cerrara el menu");
-					fi.ficheroLog("Se cerrara el menu");
+					fi.ficheroLog("Aplicacion Cerrada");
 					cerrarMenu = true;
 					System.out.println("#######################################");
 					break;

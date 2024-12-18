@@ -18,5 +18,5 @@ public interface MenuInterfaz {
 	 * ilp-101024
 	 */
 	public void mostrarListadoConsulta() throws Exception;
-
+	public void mostrarImprimirConsulta () throws Exception;
 }

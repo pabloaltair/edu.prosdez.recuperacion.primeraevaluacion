@@ -1,0 +1,126 @@
+MenuInicial
+Aplicacion Cerrada
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+El error es: Text '12-' could not be parsed at index 3
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
