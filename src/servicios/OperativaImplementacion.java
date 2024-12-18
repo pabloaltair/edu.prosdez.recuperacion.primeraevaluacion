@@ -98,6 +98,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	            fechaValida = true; // Si no hay excepciones, la fecha es válida
 	        } catch (Exception e) {
 	            System.out.println("Formato de fecha inválido. Por favor, inténtalo de nuevo.");
+	            fi.ficheroLog("El error es: " .concat(e.getMessage()));
 	        }
 
 	    } while (!fechaValida);
@@ -145,6 +146,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	            fechaValida = true; // Si no hay excepciones, la fecha es válida
 	        } catch (Exception e) {
 	            System.out.println("Formato de fecha inválido. Por favor, inténtalo de nuevo.");
+	            fi.ficheroLog("El error es: " .concat(e.getMessage()));
 	        }
 
 	    } while (!fechaValida);
@@ -214,7 +216,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	        }
 	    } catch (IOException e) {
 	        e.printStackTrace();
-	        fi.ficheroLog(e.getMessage());
+	        fi.ficheroLog("El error es: " .concat(e.getMessage()));
 	    }
 	}
 	//Metodo que Imprime las Consultas de Psicología segun su fecha, si existen, y si son validas
@@ -235,6 +237,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	            fechaValida = true; // Si no hay excepciones, la fecha es válida
 	        } catch (Exception e) {
 	            System.out.println("Formato de fecha inválido. Por favor, inténtalo de nuevo.");
+	            fi.ficheroLog("El error es: " .concat(e.getMessage()));
 	        }
 	    } while (!fechaValida);
 
@@ -290,6 +293,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	            fechaValida = true; // Si no hay excepciones, la fecha es válida
 	        } catch (Exception e) {
 	            System.out.println("Formato de fecha inválido. Por favor, inténtalo de nuevo.");
+	            fi.ficheroLog("El error es: " .concat(e.getMessage()));
 	        }
 	    } while (!fechaValida);
 
@@ -344,6 +348,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	            fechaValida = true; // Si no hay excepciones, la fecha es válida
 	        } catch (Exception e) {
 	            System.out.println("Formato de fecha inválido. Por favor, inténtalo de nuevo.");
+	            fi.ficheroLog("El error es: " .concat(e.getMessage()));
 	        }
 	    } while (!fechaValida);
 
