@@ -24,7 +24,7 @@ public class MenuImplementacion implements MenuInterfaz {
 	public void mostrarRegistroLlegada() throws Exception {
 		// TODO Auto-generated method stub
 		fi.ficheroLog("RegistroLLegada");
-		System.out.println("Introduzca su DNI");
+		op.ValidacionDNI();
 		
 
 	}

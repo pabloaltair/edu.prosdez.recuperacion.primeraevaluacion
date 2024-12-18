@@ -359,56 +359,93 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	        }
 	    }
 	}
-	public class ValidacionDNI {
-
-	    // Tabla de letras según el resto
-	    private static final String[] LETRAS = {
-	        "T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"
-	    };
-
-	    // Método para validar el DNI
-	    public static boolean validarDNI(String dni) {
-	        // Verificar que el DNI tiene el formato correcto (8 números + 1 letra)
-	        if (dni == null || dni.length() != 9) {
-	            return false;  // Formato incorrecto
-	        }
-
-	        String numeroDni = dni.substring(0, 8);  // Los primeros 8 caracteres son el número
-	        char letraDni = dni.charAt(8);           // El noveno carácter es la letra
-
-	        // Validar que el número del DNI es un número válido
-	        try {
-	            Long.parseLong(numeroDni);  // Intentar convertir a número
-	        } catch (NumberFormatException e) {
-	            return false;  // Si ocurre un error, no es un número válido
-	        }
-
-	        // Calcular el resto de la división
-	        int numero = Integer.parseInt(numeroDni);
-	        int resto = numero % 23;
-
-	        // Obtener la letra correspondiente
-	        String letraEsperada = LETRAS[resto];
-
-	        // Comparar la letra del DNI con la letra calculada
-	        return letraEsperada.equalsIgnoreCase(String.valueOf(letraDni));
-	    }
-
-	    public static void main(String[] args) {
-	        String dni = "12345678T"; // Ejemplo de DNI para probar
-
-	        if (validarDNI(dni)) {
-	            System.out.println("El DNI es válido.");
-	        } else {
-	            System.out.println("El DNI no es válido.");
-	        }
-	    }
-	}
-	@Override
-	public void ValidacionDNI() throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
 	
+	 // Tabla de letras según el resto
+    private static final String[] LETRAS = {
+        "T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"
+    };
+
+    @Override
+    public void ValidacionDNI() throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        String dni;
+        boolean dniValido = false; // Controla si el DNI es válido
+        LocalDate hoy = LocalDate.now(); // Fecha actual
+
+        do {
+            try {
+                // Solicitar el DNI al usuario
+                System.out.print("Por favor, introduce tu DNI (8 números y 1 letra): ");
+                dni = scanner.nextLine();
+
+                // Verificar que el DNI tiene exactamente 9 caracteres
+                if (dni == null || dni.length() != 9) {
+                    throw new IllegalArgumentException("El DNI debe tener 9 caracteres: 8 números y 1 letra.");
+                }
+
+                // Separar el número del DNI y la letra
+                String numeroDni = dni.substring(0, 8);
+                char letraDni = dni.charAt(8);
+
+                // Validar que los primeros 8 caracteres sean números
+                try {
+                    Long.parseLong(numeroDni); // Si no son números, lanza una excepción
+                } catch (NumberFormatException e) {
+                    throw new IllegalArgumentException("Los primeros 8 caracteres del DNI deben ser números.");
+                }
+
+                // Calcular el resto de la división del número del DNI entre 23
+                int numero = Integer.parseInt(numeroDni);
+                int resto = numero % 23;
+
+                // Obtener la letra esperada
+                String letraEsperada = LETRAS[resto];
+
+                // Comparar la letra calculada con la letra introducida
+                if (!letraEsperada.equalsIgnoreCase(String.valueOf(letraDni))) {
+                    throw new IllegalArgumentException("El DNI introducido no es válido. La letra esperada es: " + letraEsperada);
+                }
+
+                // DNI válido hasta este punto
+                boolean citaEncontrada = false;
+
+                for (CitaDto consulta : Main.listaConsultaDtos) {
+                    if (consulta.getDni().equalsIgnoreCase(dni)) {
+                        citaEncontrada = true;
+
+                        // Convertir LocalDateTime a LocalDate para comparación
+                        LocalDate fechaCita = consulta.getFechaCita().toLocalDate();
+
+                        // Comprobar si la cita es para hoy
+                        if (fechaCita.equals(hoy)) {
+                            System.out.println("Tiene una cita para hoy. Puede pasar.");
+                        } else {
+                            System.out.println("Tiene una cita, pero no es para hoy. Su cita es el: " + fechaCita);
+                        }
+                        break;
+                    }
+                }
+
+                if (!citaEncontrada) {
+                    System.out.println("El DNI introducido no tiene una cita registrada para este día.");
+                }
+
+                dniValido = true; // Salimos del bucle si todo es correcto
+
+            } catch (IllegalArgumentException e) {
+                // Manejo de errores personalizados
+                System.out.println("Error: " + e.getMessage());
+                System.out.println("Por favor, vuelva a introducir un DNI correcto.\n");
+            } catch (Exception e) {
+                // Cualquier otra excepción
+                System.out.println("Ocurrió un error inesperado: " + e.getMessage());
+                break;
+            }
+
+        } while (!dniValido);
+    }
+
+    
+
+
 }

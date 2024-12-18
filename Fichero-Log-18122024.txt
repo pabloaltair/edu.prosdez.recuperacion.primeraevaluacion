@@ -1,0 +1,80 @@
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+El error es: Text 'a' could not be parsed at index 0
+El error es: Text '12-12-20222' could not be parsed at index 6
+MenuInicial
+
+ListadoConsulta
+Elegir Tipo de Consulta
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
+
+ListadoConsulta
+Menu Imprimir Consulta
+MenuInicial
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+MenuInicial
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+
+RegistroLLegada
+MenuInicial
+
+RegistroLLegada
+MenuInicial

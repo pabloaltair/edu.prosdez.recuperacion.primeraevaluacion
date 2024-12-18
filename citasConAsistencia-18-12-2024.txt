@@ -1,0 +1,2 @@
+CitaDto [dni=47966922T, nombre=Alfonso, apellidos=Fernández García, especialidad=Psicología, fechaCita=2024-04-29T12:30, asistencia=true]
+CitaDto [dni=37165912P, nombre=Laura, apellidos=Quintero García, especialidad=Psicología, fechaCita=2024-04-29T13:30, asistencia=true]
