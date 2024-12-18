@@ -5,7 +5,7 @@ public interface MenuInterfaz {
 	 * Metodo encargado de mostrar el menu principal 
 	 * ilp-101024
 	 */
-	public int mostrarMenuInicial();
+	public int mostrarMenuInicial () throws Exception;
 	/*
 	 * Metodo encargado de mostrar el menu Empleado
 	 *  ilp-101024

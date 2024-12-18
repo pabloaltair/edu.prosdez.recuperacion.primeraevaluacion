@@ -17,6 +17,8 @@ import servicios.OperativaInterfaz;
  * Gestiona el flujo inicial y principal del programa.
  */
 public class Main {
+	
+	//Listas que consultan los objetos del Dto
 	public static List<CitaDto> listaConsultaDtos = new ArrayList<CitaDto>();
 	public static List<CitaDto> consultasValidas = new ArrayList<CitaDto>();
 
@@ -28,7 +30,7 @@ public class Main {
 		try {
 			opi.cargaDatos();
 		} catch (Exception e) {
-			// TODO: handle exception
+			fi.ficheroLog("Ocurrio un error en la app Error=".concat(e.getMessage()));
 		}
 		
 		try {

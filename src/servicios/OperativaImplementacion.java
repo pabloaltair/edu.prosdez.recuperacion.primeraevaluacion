@@ -15,6 +15,10 @@ import java.util.Scanner;
 import controladores.Main;
 import dtos.CitaDto;
 
+/**
+ * Clase Operativa Implementacion
+ * Gestiona la operativa de la aplicacion, permitiendo el acceso a todos sus metodos al resto de componentes que los llamen
+ */
 public class OperativaImplementacion implements OperativaInterfaz{
 	
 	//Inicializamos el FicheroImplementacion
@@ -25,10 +29,11 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	//Atributos de clase
 	String fechaString;
 	boolean fechaValida = false;
+	
 	//Iniciamos variable auxiliar existen consultas
 	boolean vacio=false;
 	
-	//Metodo Consulta Psicologia
+	//Metodo Consulta Psicologia. Inserta una fecha, y se filtra con la especialidad Psicologia y la fecha los campos a mostrar si existen
 	@Override
 	public void mostrarConsultasPsicologia() {
        
@@ -48,7 +53,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 		    
 		} while (!fechaValida);
 		
-		
+		//Bucle que recoge las citas de la Lista ConsultaDtos
 		for (CitaDto pl : Main.listaConsultaDtos) {
 			if (pl.getEspecialidad().equals("Psicología")) {
 				
@@ -78,7 +83,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 			System.out.println("No se ha encontrado ninguna consulta");
 		}
 	}
-	// Método Consulta Traumatología
+	// Método Consulta Traumatología. Inserta una fecha, y se filtra con la especialidad Traumatologia y la fecha los campos a mostrar si existen
 	@Override
 	public void mostrarConsultasTraumatologia() {
 	    // Validar formato de fecha
@@ -125,7 +130,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	    }
 	}
 
-	// Método Consulta Fisioterapia
+	// Método Consulta Fisioterapia. Inserta una fecha, y se filtra con la especialidad Fisioterapia y la fecha los campos a mostrar si existen
 	@Override
 	public void mostrarConsultasFisioterapia() {
 	    // Validar formato de fecha
@@ -175,7 +180,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	
 	
 
-	// Define la ruta del archivo de texto y carga sus datos
+	// Metodo que define la ruta del archivo de texto y carga sus datos
 	@Override
 	public void cargaDatos() {
 	    String ruta = "C:\\Users\\prosdez\\eclipse-workspace\\edu.recuperacion.prosdez\\src\\citas.txt"; 
@@ -187,6 +192,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	        while ((linea = lector.readLine()) != null) {
 	            String[] arrayLineas = linea.split(";");
 	            
+	            //Toma los datos del usuario
 	            CitaDto consulta = new CitaDto();
 	            consulta.setDni(arrayLineas[0]);
 	            consulta.setNombre(arrayLineas[1]);
@@ -211,7 +217,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	        fi.ficheroLog(e.getMessage());
 	    }
 	}
-	//Imprime las Consultas de Psicología y su fecha
+	//Metodo que Imprime las Consultas de Psicología segun su fecha, si existen, y si son validas
 	@Override
 	public void imprimirConsultasPsicologia() {
 	    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -266,7 +272,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	}
 
 	
-	//Imprime las Consultas de Traumatologia y su fecha
+	//Imprime las Consultas de Traumatologia segun su fecha, si existen, y si son validas
 	@Override
 	public void imprimirConsultasTraumatologia() {
 	    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -320,7 +326,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	    }
 	}
 
-	//Imprime las Consultas de Fisioterapia y su fecha	
+	//Imprime las Consultas de Fisioterapia segun su fecha, si existen, y si son validas	
 	@Override
 	public void imprimirConsultasFisioterapia() {
 	    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -383,15 +389,14 @@ public class OperativaImplementacion implements OperativaInterfaz{
     @Override
     public void ValidacionDNI() throws Exception {
         Scanner scanner = new Scanner(System.in);
-        String dni;
         boolean dniValido = false; // Controla si el DNI es válido
         LocalDate hoy = LocalDate.now(); // Fecha actual
 
         do {
             try {
                 // Solicitar el DNI al usuario
-                System.out.print("Por favor, introduce tu DNI (8 números y 1 letra): ");
-                dni = scanner.nextLine();
+                System.out.print("Introduce tu DNI");
+                String dni = scanner.nextLine();
 
                 // Verificar que el DNI tiene exactamente 9 caracteres
                 if (dni == null || dni.length() != 9) {

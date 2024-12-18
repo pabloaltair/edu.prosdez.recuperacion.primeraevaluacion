@@ -1,6 +1,10 @@
 package servicios;
 
 import java.util.Scanner;
+/**
+ * Clase Menu Implementacion.
+ * Gestiona la navegacion por los metodos de la Aplicacion permitiendole acceder las funcionalidades de la misma
+ */
 
 public class MenuImplementacion implements MenuInterfaz {
 	
@@ -10,8 +14,9 @@ public class MenuImplementacion implements MenuInterfaz {
 	FicheroInterfaz fi = new FicheroImplementacion();
 	OperativaInterfaz op= new OperativaImplementacion();
 	
+	//Metodo que abre el Menu Inicial de la aplicacion y permite acceso a Registro de Llegada y Listado de Consulta
 	@Override
-	public int mostrarMenuInicial() {
+	public int mostrarMenuInicial() throws Exception {
 		fi.ficheroLog("MenuInicial");
 		System.out.println("0-Cerrar Menu");
 		System.out.println("1-Registro De Llegada");
@@ -19,7 +24,7 @@ public class MenuImplementacion implements MenuInterfaz {
 		int opc=scanner.nextInt();
 		return opc;
 	}
-
+	//Metodo que abre el Registro Llegada y llama a el metodo que valida el DNI
 	@Override
 	public void mostrarRegistroLlegada() throws Exception {
 		// TODO Auto-generated method stub
@@ -28,7 +33,7 @@ public class MenuImplementacion implements MenuInterfaz {
 		
 
 	}
-
+	//Metodo que abre el Listado de Consulta, permitiendo acceder a metodos Mostrar consultas e Imprimir consultas
 	@Override
 	public void mostrarListadoConsulta() throws Exception {
 		// TODO Auto-generated method stub
@@ -55,6 +60,7 @@ public class MenuImplementacion implements MenuInterfaz {
 		}
 		
 	}
+	//Metodo que permite elegir entre tipo de consultas para mostrar con su metodo las consultas con sus características
 	public void elegirTipoConsulta() throws Exception {
 		// TODO Auto-generated method stub
 		fi.ficheroLog("Elegir Tipo de Consulta");
@@ -89,7 +95,7 @@ public class MenuImplementacion implements MenuInterfaz {
 		}
 		
 	}
-
+	//Metodo que permite elegir entre tipo de consultas para imprimir con su metodo las consultas con sus características
 	public void mostrarImprimirConsulta() throws Exception {
 		// TODO Auto-generated method stub
 				fi.ficheroLog("Menu Imprimir Consulta");
