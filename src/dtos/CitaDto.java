@@ -1,7 +1,7 @@
 package dtos;
 
 import java.time.LocalDateTime;
-
+//DTO de las citas
 public class CitaDto {
 
 		String dni;
