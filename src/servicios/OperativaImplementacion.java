@@ -211,29 +211,30 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	        fi.ficheroLog(e.getMessage());
 	    }
 	}
-	//Imprime las Consultas de Psicologia y su fecha
+	//Imprime las Consultas de Psicología y su fecha
 	@Override
 	public void imprimirConsultasPsicologia() {
 	    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	    boolean fechaValida = false;
+	    String fechaString = "";
 
-	    //Verificar Fecha
+	    // Verificar Fecha
 	    do {
-		    System.out.println("Introduce la Fecha (dd-MM-yyyy):");
-		    fechaString = fechaScanner.next();
-		    
-		    // Validar formato de fecha
-		    try {
-		        
-		        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		        LocalDate.parse(fechaString, formatter); // Si esto falla, irá al catch
-		        fechaValida = true; // Si no hay excepciones, la fecha es válida
-		    } catch (Exception e) {
-		        System.out.println("Formato de fecha inválido. Por favor, inténtalo de nuevo.");
-		    }
-		    
+	        System.out.println("Introduce la Fecha (dd-MM-yyyy):");
+	        fechaString = fechaScanner.next();
+
+	        // Validar formato de fecha
+	        try {
+	            LocalDate.parse(fechaString, dateFormatter); // Si esto falla, irá al catch
+	            fechaValida = true; // Si no hay excepciones, la fecha es válida
+	        } catch (Exception e) {
+	            System.out.println("Formato de fecha inválido. Por favor, inténtalo de nuevo.");
+	        }
 	    } while (!fechaValida);
 
-	    
+	    // Limpiar la lista de consultas válidas
+	    Main.consultasValidas.clear();
+
 	    // Iterar sobre las consultas
 	    for (CitaDto consulta : Main.listaConsultaDtos) {
 	        // Formatear la fecha de la consulta
@@ -246,44 +247,49 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	            Main.consultasValidas.add(consulta);
 	        }
 	    }
-	    //Guardamos datos en fichero
-	    fi.ficherocitasConAsistencia();
-	    
+
+	    // Guardar datos en fichero si hay citas válidas
+	    if (!Main.consultasValidas.isEmpty()) {
+	        fi.ficherocitasConAsistencia();
+	        System.out.println("Consultas de Psicología válidas guardadas en el fichero.");
+	    } else {
+	        System.out.println("No hay datos disponibles para la especialidad y fecha indicada.");
+	    }
 
 	    // Imprimir las consultas válidas por consola
-	    if (Main.consultasValidas.isEmpty()) {
-	        System.out.println("“No hay datos disponibles para la especialidad y fecha indicada.”");
-	    } else {
+	    if (!Main.consultasValidas.isEmpty()) {
 	        System.out.println("Consultas de Psicología válidas:");
 	        for (CitaDto consulta : Main.consultasValidas) {
 	            System.out.println(consulta.toString());
 	        }
 	    }
 	}
+
 	
 	//Imprime las Consultas de Traumatologia y su fecha
 	@Override
 	public void imprimirConsultasTraumatologia() {
-		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	    boolean fechaValida = false;
+	    String fechaString = "";
 
-	    //Verificar Fecha
+	    // Verificar Fecha
 	    do {
-		    System.out.println("Introduce la Fecha (dd-MM-yyyy):");
-		    fechaString = fechaScanner.next();
-		    
-		    // Validar formato de fecha
-		    try {
-		        
-		        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		        LocalDate.parse(fechaString, formatter); // Si esto falla, irá al catch
-		        fechaValida = true; // Si no hay excepciones, la fecha es válida
-		    } catch (Exception e) {
-		        System.out.println("Formato de fecha inválido. Por favor, inténtalo de nuevo.");
-		    }
-		    
+	        System.out.println("Introduce la Fecha (dd-MM-yyyy):");
+	        fechaString = fechaScanner.next();
+
+	        // Validar formato de fecha
+	        try {
+	            LocalDate.parse(fechaString, dateFormatter); // Si esto falla, irá al catch
+	            fechaValida = true; // Si no hay excepciones, la fecha es válida
+	        } catch (Exception e) {
+	            System.out.println("Formato de fecha inválido. Por favor, inténtalo de nuevo.");
+	        }
 	    } while (!fechaValida);
 
-	    
+	    // Limpiar la lista de consultas válidas
+	    Main.consultasValidas.clear();
+
 	    // Iterar sobre las consultas
 	    for (CitaDto consulta : Main.listaConsultaDtos) {
 	        // Formatear la fecha de la consulta
@@ -291,48 +297,53 @@ public class OperativaImplementacion implements OperativaInterfaz{
 
 	        // Comprobar fecha, especialidad y asistencia
 	        if (fechaString.equals(fechaConsulta) &&
-	            consulta.getEspecialidad().equalsIgnoreCase("Traumatologia") &&
+	            consulta.getEspecialidad().equalsIgnoreCase("Traumatología") &&
 	            consulta.isAsistencia()) {
 	            Main.consultasValidas.add(consulta);
 	        }
 	    }
-	    //Guardamos datos en fichero
-	    fi.ficherocitasConAsistencia();
-	    
+
+	    // Guardar datos en fichero si hay citas válidas
+	    if (!Main.consultasValidas.isEmpty()) {
+	        fi.ficherocitasConAsistencia();
+	        System.out.println("Consultas de Traumatología válidas guardadas en el fichero.");
+	    } else {
+	        System.out.println("No hay datos disponibles para la especialidad y fecha indicada.");
+	    }
 
 	    // Imprimir las consultas válidas por consola
-	    if (Main.consultasValidas.isEmpty()) {
-	        System.out.println("“No hay datos disponibles para la especialidad y fecha indicada.”");
-	    } else {
-	        System.out.println("Consultas de Traumatologia válidas:");
+	    if (!Main.consultasValidas.isEmpty()) {
+	        System.out.println("Consultas de Traumatología válidas:");
 	        for (CitaDto consulta : Main.consultasValidas) {
 	            System.out.println(consulta.toString());
 	        }
 	    }
 	}
+
 	//Imprime las Consultas de Fisioterapia y su fecha	
 	@Override
 	public void imprimirConsultasFisioterapia() {
-		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	    boolean fechaValida = false;
+	    String fechaString = "";
 
-	    //Verificar Fecha
+	    // Verificar Fecha
 	    do {
-		    System.out.println("Introduce la Fecha (dd-MM-yyyy):");
-		    fechaString = fechaScanner.next();
-		    
-		    // Validar formato de fecha
-		    try {
-		        
-		        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		        LocalDate.parse(fechaString, formatter); // Si esto falla, irá al catch
-		        fechaValida = true; // Si no hay excepciones, la fecha es válida
-		    } catch (Exception e) {
-		        System.out.println("Formato de fecha inválido. Por favor, inténtalo de nuevo.");
-		    }
-		    
+	        System.out.println("Introduce la Fecha (dd-MM-yyyy):");
+	        fechaString = fechaScanner.next();
+
+	        // Validar formato de fecha
+	        try {
+	            LocalDate.parse(fechaString, dateFormatter); // Si esto falla, irá al catch
+	            fechaValida = true; // Si no hay excepciones, la fecha es válida
+	        } catch (Exception e) {
+	            System.out.println("Formato de fecha inválido. Por favor, inténtalo de nuevo.");
+	        }
 	    } while (!fechaValida);
 
-	    
+	    // Limpiar la lista de consultas válidas
+	    Main.consultasValidas.clear();
+
 	    // Iterar sobre las consultas
 	    for (CitaDto consulta : Main.listaConsultaDtos) {
 	        // Formatear la fecha de la consulta
@@ -345,20 +356,24 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	            Main.consultasValidas.add(consulta);
 	        }
 	    }
-	    //Guardamos datos en fichero
-	    fi.ficherocitasConAsistencia();
-	    
+
+	    // Guardar datos en fichero si hay citas válidas
+	    if (!Main.consultasValidas.isEmpty()) {
+	        fi.ficherocitasConAsistencia();
+	        System.out.println("Consultas de Fisioterapia válidas guardadas en el fichero.");
+	    } else {
+	        System.out.println("No hay datos disponibles para la especialidad y fecha indicada.");
+	    }
 
 	    // Imprimir las consultas válidas por consola
-	    if (Main.consultasValidas.isEmpty()) {
-	        System.out.println("“No hay datos disponibles para la especialidad y fecha indicada.”");
-	    } else {
+	    if (!Main.consultasValidas.isEmpty()) {
 	        System.out.println("Consultas de Fisioterapia válidas:");
 	        for (CitaDto consulta : Main.consultasValidas) {
 	            System.out.println(consulta.toString());
 	        }
 	    }
 	}
+
 	
 	 // Tabla de letras según el resto
     private static final String[] LETRAS = {
