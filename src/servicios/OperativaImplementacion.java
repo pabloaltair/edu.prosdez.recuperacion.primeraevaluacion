@@ -178,7 +178,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	// Define la ruta del archivo de texto y carga sus datos
 	@Override
 	public void cargaDatos() {
-	    String ruta = "C:\\Users\\usuario\\Documents\\Desarrollo Entorno Servidor\\edu.prosdez.recuperacion.primeraevaluacion\\src\\citas.txt"; 
+	    String ruta = "C:\\Users\\prosdez\\eclipse-workspace\\edu.recuperacion.prosdez\\src\\citas.txt"; 
 	    try (BufferedReader lector = new BufferedReader(new FileReader(ruta))) {
 	        String linea;
 	        // Define el formato esperado de la fecha
@@ -418,7 +418,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 
                         // Comprobar si la cita es para hoy
                         if (fechaCita.equals(hoy)) {
-                            System.out.println("Tiene una cita para hoy. Puede pasar.");
+                            System.out.println("Espere su turno para la consulta de " + consulta.getEspecialidad()+ " en la sala de espera. Su especialista le avisará.");
                         } else {
                             System.out.println("Tiene una cita, pero no es para hoy. Su cita es el: " + fechaCita);
                         }
@@ -427,7 +427,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
                 }
 
                 if (!citaEncontrada) {
-                    System.out.println("El DNI introducido no tiene una cita registrada para este día.");
+                    System.out.println("No dispone de cita previa para hoy.");
                 }
 
                 dniValido = true; // Salimos del bucle si todo es correcto

@@ -78,3 +78,5 @@ MenuInicial
 
 RegistroLLegada
 MenuInicial
+C:\Users\usuario\Documents\Desarrollo Entorno Servidor\edu.prosdez.recuperacion.primeraevaluacion\src\citas.txt (El sistema no puede encontrar la ruta especificada)
+MenuInicial

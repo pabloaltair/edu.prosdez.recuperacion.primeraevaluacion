@@ -19,7 +19,7 @@ public class FicheroImplementacion implements FicheroInterfaz {
         // Formatear la fecha actual para incluirla en el nombre del archivo
         SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMyyyy");
         String fechaActual = dateFormat.format(new Date());
-        String ruta = "C:\\Users\\usuario\\Documents\\Desarrollo Entorno Servidor\\edu.prosdez.recuperacion.primeraevaluacion\\Fichero-Log-" + fechaActual + ".txt";
+        String ruta = "C:\\Users\\prosdez\\eclipse-workspace\\edu.recuperacion.prosdez" + fechaActual + ".txt";
 
         try (BufferedWriter escribe = new BufferedWriter(new FileWriter(ruta, true))) {
             escribe.write(dato.concat("\n"));
@@ -34,7 +34,7 @@ public class FicheroImplementacion implements FicheroInterfaz {
     	// Formatear la fecha actual para incluirla en el nombre del archivo
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String fechaActual = dateFormat.format(new Date());
-        String ruta = "C:\\Users\\usuario\\Documents\\Desarrollo Entorno Servidor\\edu.prosdez.recuperacion.primeraevaluacion\\citasConAsistencia-" + fechaActual + ".txt";
+        String ruta = "C:\\Users\\prosdez\\eclipse-workspace\\edu.recuperacion.prosdez\\citasConAsistencia-" + fechaActual + ".txt";
         
      // Escribir las consultas válidas en un fichero
 	    try (BufferedWriter escritor = new BufferedWriter(new FileWriter(ruta))) {
